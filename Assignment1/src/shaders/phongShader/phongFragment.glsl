@@ -45,6 +45,13 @@ float unpack(vec4 rgbaDepth) {
     return dot(rgbaDepth, bitShift);
 }
 
+float getBias(){
+  // vec3 normal = normalize(vNormal);
+  // vec3 lightDir = normalize(uLightPos - vFragPos);
+  // return max(0.05 * (1.0 - dot(normal, lightDir)), 0.005);
+  return 0.005;
+}
+
 vec2 poissonDisk[NUM_SAMPLES];
 
 void poissonDiskSamples( const in vec2 randomSeed ) {
@@ -87,8 +94,27 @@ float findBlocker( sampler2D shadowMap,  vec2 uv, float zReceiver ) {
 	return 1.0;
 }
 
+float useShadowMap(sampler2D shadowMap, vec4 shadowCoord){
+  float closestDepth  = unpack(texture2D(shadowMap, shadowCoord.xy));
+  float currentDepth = shadowCoord.z;
+  float visibility = currentDepth - getBias() > closestDepth + EPS ? 0.0 : 1.0;
+  // float visibility = currentDepth > closestDepth + EPS ? 0.0 : 1.0;
+  return visibility;
+}
+
 float PCF(sampler2D shadowMap, vec4 coords) {
-  return 1.0;
+  // uniformDiskSamples(coords.xy);
+  poissonDiskSamples(coords.xy);
+  float visibility = 0.0;
+  float currentDepth = coords.z;
+  float texelSize = 1.0 / 1024.0;
+  for (int i = 0; i < NUM_SAMPLES; i++) 
+  {
+    vec2 offset = poissonDisk[i] * texelSize;
+    float shadowDepth = useShadowMap(shadowMap, coords + vec4(offset, 0.0, 0.0));
+    visibility += currentDepth - getBias() > shadowDepth + EPS ? 0.0 : 1.0;
+  }
+  return visibility / float(NUM_SAMPLES);
 }
 
 float PCSS(sampler2D shadowMap, vec4 coords){
@@ -101,14 +127,6 @@ float PCSS(sampler2D shadowMap, vec4 coords){
   
   return 1.0;
 
-}
-
-
-float useShadowMap(sampler2D shadowMap, vec4 shadowCoord){
-  float closestDepth  = unpack(texture2D(shadowMap, shadowCoord.xy));
-  float currentDepth = shadowCoord.z;
-  float visibility = (currentDepth - 0.005) > (closestDepth + EPS) ? 0.0 : 1.0;
-  return visibility;
 }
 
 vec3 blinnPhong() {
@@ -141,8 +159,9 @@ void main(void) {
   vec3 shadowCoord = vPositionFromLight.xyz / vPositionFromLight.w;
   shadowCoord = shadowCoord * 0.5 + 0.5;
 
-  visibility = useShadowMap(uShadowMap, vec4(shadowCoord, 1.0));
-  //visibility = PCF(uShadowMap, vec4(shadowCoord, 1.0));
+  // 代码参考 https://github.com/DrFlower/GAMES_101_202_Homework/blob/main/Homework_202/Assignment1/homework1/src/shaders/phongShader/phongFragment.glsl
+  // visibility = useShadowMap(uShadowMap, vec4(shadowCoord, 1.0));
+  visibility = PCF(uShadowMap, vec4(shadowCoord, 1.0));
   //visibility = PCSS(uShadowMap, vec4(shadowCoord, 1.0));
 
   vec3 phongColor = blinnPhong();
