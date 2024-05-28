@@ -107,7 +107,7 @@ float PCSS(sampler2D shadowMap, vec4 coords){
 float useShadowMap(sampler2D shadowMap, vec4 shadowCoord){
   float closestDepth  = unpack(texture2D(shadowMap, shadowCoord.xy));
   float currentDepth = shadowCoord.z;
-  float visibility = currentDepth > (closestDepth + EPS) ? 0.0 : 1.0;
+  float visibility = (currentDepth - 0.005) > (closestDepth + EPS) ? 0.0 : 1.0;
   return visibility;
 }
 
