@@ -1,9 +1,0 @@
-# CMake generation dependency list for this directory.
-C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake
-C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckFunctionExists.cmake
-C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckIncludeFile.cmake
-C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckIncludeFileCXX.cmake
-C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckTypeSize.cmake
-D:/Project/Games202Assignment/Assignment2/prt/ext/openexr/zlib/CMakeLists.txt
-D:/Project/Games202Assignment/Assignment2/prt/ext/openexr/zlib/zconf.h.cmakein
-D:/Project/Games202Assignment/Assignment2/prt/ext/openexr/zlib/zlib.pc.cmakein

@@ -1,6 +1,0 @@
-# CMake generation dependency list for this directory.
-C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CPack.cmake
-C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CPackComponent.cmake
-C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckCXXSourceCompiles.cmake
-C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Templates/CPackConfig.cmake.in
-D:/Project/Games202Assignment/Assignment2/prt/ext/openexr/OpenEXR/CMakeLists.txt
