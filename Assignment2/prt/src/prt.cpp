@@ -129,6 +129,14 @@ namespace ProjEnv
                     int index = (y * width + x) * channel;
                     Eigen::Array3f Le(images[i][index + 0], images[i][index + 1],
                                       images[i][index + 2]);
+                    // 参考 https://github.com/DrFlower/GAMES_101_202_Homework/tree/main/Homework_202/Assignment2
+                    auto delta_w = CalcArea(x, y, width, height);
+                    for (int l = 0; l <= SHOrder; l++) {
+                        for (int m = -l; m <= l; m++) {
+                            auto basic_sh_proj = sh::EvalSH(l, m, Eigen::Vector3d(dir.x(), dir.y(), dir.z()).normalized());
+                            SHCoeffiecents[sh::GetIndex(l, m)] += Le * basic_sh_proj * delta_w;
+                        }
+                    }
                 }
             }
         }
