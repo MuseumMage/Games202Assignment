@@ -1,0 +1,262 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "ext_build/openexr/OpenEXR/IlmImf/Release/b44ExpLogTable.exe"
+		},
+		{
+			"path" : "ext_build/openexr/OpenEXR/IlmImf/Release/b44ExpLogTable.pdb"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"ADD_EXECUTABLE",
+			"TARGET_LINK_LIBRARIES",
+			"include_directories",
+			"INCLUDE_DIRECTORIES"
+		],
+		"files" : 
+		[
+			"ext/openexr/OpenEXR/IlmImf/CMakeLists.txt",
+			"ext/CMakeLists.txt",
+			"ext/openexr/CMakeLists.txt",
+			"ext/openexr/OpenEXR/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 5,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 9,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 120,
+				"parent" : 3
+			},
+			{
+				"file" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 35,
+				"parent" : 5
+			},
+			{
+				"file" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 3,
+				"line" : 48,
+				"parent" : 7
+			},
+			{
+				"command" : 3,
+				"file" : 3,
+				"line" : 62,
+				"parent" : 7
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /D_CRT_SECURE_NO_WARNINGS /D__TBB_NO_IMPLICIT_LINKAGE /MP /wd4275 /wd4267 /wd4244 /wd4477 /wd4996 /wd4800 /wd4334 /wd4251 /wd4305 /wd4302 /wd4311 /wd4018 /MT /O2 /Ob2 /DNDEBUG"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"define" : "HAVE_CONFIG_H"
+				},
+				{
+					"define" : "ILM_IMF_TEST_IMAGEDIR=\"D:/Project/Games202Assignment/Assignment2/prt/IlmImfTest/\""
+				}
+			],
+			"includes" : 
+			[
+				{
+					"path" : "D:/Project/Games202Assignment/Assignment2/prt/cmake-build-debug-visual-studio/ext_build/openexr/OpenEXR/IlmImf"
+				},
+				{
+					"path" : "D:/Project/Games202Assignment/Assignment2/prt/ext/openexr/OpenEXR/IlmImf"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "D:/Project/Games202Assignment/Assignment2/prt/ext/zlib"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "D:/Project/Games202Assignment/Assignment2/prt/cmake-build-debug-visual-studio/ext_build/zlib"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/Project/Games202Assignment/Assignment2/prt/ext/openexr/IlmBase/Iex"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/Project/Games202Assignment/Assignment2/prt/ext/openexr/IlmBase/Imath"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/Project/Games202Assignment/Assignment2/prt/ext/openexr/IlmBase/IlmThread"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/Project/Games202Assignment/Assignment2/prt/ext/openexr/IlmBase/Half"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "D:/Project/Games202Assignment/Assignment2/prt/cmake-build-debug-visual-studio/ext_build/openexr/IlmBase/config"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/Project/Games202Assignment/Assignment2/prt/cmake-build-debug-visual-studio/ext_build/openexr/OpenEXR/config"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/Project/Games202Assignment/Assignment2/prt/ext/openexr/OpenEXR/IlmImfUtil"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/Project/Games202Assignment/Assignment2/prt/ext/openexr/OpenEXR/exrmaketiled"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/Project/Games202Assignment/Assignment2/prt/ext/openexr/OpenEXR/exrenvmap"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/Project/Games202Assignment/Assignment2/prt/ext/openexr/OpenEXR/exrmakepreview"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/Project/Games202Assignment/Assignment2/prt/ext/openexr/OpenEXR/exrmultiview"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "D:/Project/Games202Assignment/Assignment2/prt/ext/openexr/OpenEXR/IlmImfFuzzTest"
+				},
+				{
+					"backtrace" : 9,
+					"path" : "D:/Project/Games202Assignment/Assignment2/prt/ext/openexr/zlib"
+				},
+				{
+					"backtrace" : 9,
+					"path" : "D:/Project/Games202Assignment/Assignment2/prt/cmake-build-debug-visual-studio/ext_build/openexr/zlib"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "Iex::@2d5ce12303fd5a715ea3"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "Half::@bc73201a0ff31525839c"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "IlmThread::@ad0fbd93a99e11f50aa5"
+		},
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "dependencies"
+	},
+	"id" : "b44ExpLogTable::@c7e2e96394a199d2be4c",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /D_CRT_SECURE_NO_WARNINGS /D__TBB_NO_IMPLICIT_LINKAGE /MP /wd4275 /wd4267 /wd4244 /wd4477 /wd4996 /wd4800 /wd4334 /wd4251 /wd4305 /wd4302 /wd4311 /wd4018 /MT /O2 /Ob2 /DNDEBUG",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "/machine:x64 /INCREMENTAL:NO /subsystem:console",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "..\\..\\IlmBase\\Half\\Release\\Half.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "..\\..\\IlmBase\\IlmThread\\Release\\IlmThread.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "..\\..\\IlmBase\\Iex\\Release\\Iex.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "b44ExpLogTable",
+	"nameOnDisk" : "b44ExpLogTable.exe",
+	"paths" : 
+	{
+		"build" : "ext_build/openexr/OpenEXR/IlmImf",
+		"source" : "ext/openexr/OpenEXR/IlmImf"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "ext/openexr/OpenEXR/IlmImf/b44ExpLogTable.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

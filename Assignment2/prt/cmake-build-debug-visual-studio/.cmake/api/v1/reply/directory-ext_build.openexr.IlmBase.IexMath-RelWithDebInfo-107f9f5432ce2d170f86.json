@@ -1,0 +1,74 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"INSTALL"
+		],
+		"files" : 
+		[
+			"ext/openexr/IlmBase/IexMath/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 12,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 18,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"ext_build/openexr/IlmBase/IexMath/RelWithDebInfo/IexMath.lib"
+			],
+			"targetId" : "IexMath::@334c737c54925b8ad8cb",
+			"targetIndex" : 9,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"cxxModuleBmiTarget" : 
+			{
+				"id" : "IexMath::@334c737c54925b8ad8cb",
+				"index" : 9
+			},
+			"destination" : "lib",
+			"type" : "cxxModuleBmi"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "include/OpenEXR",
+			"paths" : 
+			[
+				"ext/openexr/IlmBase/IexMath/IexMathFloatExc.h",
+				"ext/openexr/IlmBase/IexMath/IexMathFpu.h",
+				"ext/openexr/IlmBase/IexMath/IexMathIeeeExc.h"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "ext_build/openexr/IlmBase/IexMath",
+		"source" : "ext/openexr/IlmBase/IexMath"
+	}
+}

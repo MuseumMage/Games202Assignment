@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\x64\Debug\ZERO_CHECK</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\IlmBase\Half\Debug\eLut.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\IlmBase\Half\Debug\toFloat.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\OpenEXR\IlmImf\Debug\b44ExpLogTable.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\OpenEXR\IlmImf\Debug\dwaLookups.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\zlib\Debug\zlib1.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\Debug\nori.exe</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

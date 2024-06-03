@@ -1,0 +1,1 @@
+D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\nanogui\ext\glfw\src\glfw_objects.dir\Debug\glfw_objects.lib

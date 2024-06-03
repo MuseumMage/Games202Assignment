@@ -1,0 +1,70 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"ext/openexr/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "zlib::@eafe0dba2676681ffab4"
+		},
+		{
+			"id" : "Iex::@2d5ce12303fd5a715ea3"
+		},
+		{
+			"id" : "eLut::@bc73201a0ff31525839c"
+		},
+		{
+			"id" : "IexMath::@334c737c54925b8ad8cb"
+		},
+		{
+			"id" : "toFloat::@bc73201a0ff31525839c"
+		},
+		{
+			"id" : "Half::@bc73201a0ff31525839c"
+		},
+		{
+			"id" : "b44ExpLogTable::@c7e2e96394a199d2be4c"
+		},
+		{
+			"id" : "IlmThread::@ad0fbd93a99e11f50aa5"
+		},
+		{
+			"id" : "dwaLookups::@c7e2e96394a199d2be4c"
+		},
+		{
+			"id" : "Imath::@cff27ddb2a1d5995498d"
+		},
+		{
+			"id" : "IlmImf::@c7e2e96394a199d2be4c"
+		},
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "CMakePredefinedTargets"
+	},
+	"id" : "ALL_BUILD::@c9b89c753bf581715845",
+	"isGeneratorProvided" : true,
+	"name" : "ALL_BUILD",
+	"paths" : 
+	{
+		"build" : "ext_build/openexr",
+		"source" : "ext/openexr"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

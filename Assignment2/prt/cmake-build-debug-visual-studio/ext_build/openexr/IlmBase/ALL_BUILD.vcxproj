@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C6A6A3D6-8877-3BF2-95FD-C9729BDC6817}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\IlmBase;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase;D:\Project\Games202Assignment\Assignment2\prt\ext\zlib;D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\zlib;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase\Iex;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase\IexMath;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase\Imath;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase\Half;D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\IlmBase\config;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase\IlmThread;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\IlmBase;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase;D:\Project\Games202Assignment\Assignment2\prt\ext\zlib;D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\zlib;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase\Iex;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase\IexMath;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase\Imath;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase\Half;D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\IlmBase\config;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase\IlmThread;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\IlmBase;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase;D:\Project\Games202Assignment\Assignment2\prt\ext\zlib;D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\zlib;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase\Iex;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase\IexMath;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase\Imath;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase\Half;D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\IlmBase\config;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase\IlmThread;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\IlmBase;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase;D:\Project\Games202Assignment\Assignment2\prt\ext\zlib;D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\zlib;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase\Iex;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase\IexMath;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase\Imath;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase\Half;D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\IlmBase\config;D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase\IlmThread;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Project\Games202Assignment\Assignment2\prt\ext\openexr\IlmBase\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Project/Games202Assignment/Assignment2/prt/ext/openexr/IlmBase/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -SD:/Project/Games202Assignment/Assignment2/prt -BD:/Project/Games202Assignment/Assignment2/prt/cmake-build-debug-visual-studio --check-stamp-file D:/Project/Games202Assignment/Assignment2/prt/cmake-build-debug-visual-studio/ext_build/openexr/IlmBase/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\share\cmake-3.28\Modules\CPack.cmake;C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\share\cmake-3.28\Modules\CPackComponent.cmake;C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\share\cmake-3.28\Templates\CPackConfig.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\IlmBase\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Project/Games202Assignment/Assignment2/prt/ext/openexr/IlmBase/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -SD:/Project/Games202Assignment/Assignment2/prt -BD:/Project/Games202Assignment/Assignment2/prt/cmake-build-debug-visual-studio --check-stamp-file D:/Project/Games202Assignment/Assignment2/prt/cmake-build-debug-visual-studio/ext_build/openexr/IlmBase/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\share\cmake-3.28\Modules\CPack.cmake;C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\share\cmake-3.28\Modules\CPackComponent.cmake;C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\share\cmake-3.28\Templates\CPackConfig.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\IlmBase\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/Project/Games202Assignment/Assignment2/prt/ext/openexr/IlmBase/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -SD:/Project/Games202Assignment/Assignment2/prt -BD:/Project/Games202Assignment/Assignment2/prt/cmake-build-debug-visual-studio --check-stamp-file D:/Project/Games202Assignment/Assignment2/prt/cmake-build-debug-visual-studio/ext_build/openexr/IlmBase/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\share\cmake-3.28\Modules\CPack.cmake;C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\share\cmake-3.28\Modules\CPackComponent.cmake;C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\share\cmake-3.28\Templates\CPackConfig.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\IlmBase\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/Project/Games202Assignment/Assignment2/prt/ext/openexr/IlmBase/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -SD:/Project/Games202Assignment/Assignment2/prt -BD:/Project/Games202Assignment/Assignment2/prt/cmake-build-debug-visual-studio --check-stamp-file D:/Project/Games202Assignment/Assignment2/prt/cmake-build-debug-visual-studio/ext_build/openexr/IlmBase/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\share\cmake-3.28\Modules\CPack.cmake;C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\share\cmake-3.28\Modules\CPackComponent.cmake;C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\share\cmake-3.28\Templates\CPackConfig.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\IlmBase\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ZERO_CHECK.vcxproj">
+      <Project>{1EDF67AB-960A-344A-A454-F997945B43EB}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\IlmBase\Half\Half.vcxproj">
+      <Project>{17972D43-4E36-35BD-8818-CCCF741ABEB2}</Project>
+      <Name>Half</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\IlmBase\Iex\Iex.vcxproj">
+      <Project>{A7CF41F6-C3A3-3F68-8187-9BFD4229BC00}</Project>
+      <Name>Iex</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\IlmBase\IexMath\IexMath.vcxproj">
+      <Project>{34997E9C-E9CE-3934-B607-396B59DB52EB}</Project>
+      <Name>IexMath</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\IlmBase\IlmThread\IlmThread.vcxproj">
+      <Project>{5C4FDE55-C00D-3D88-BEAD-0DF7691DCD1D}</Project>
+      <Name>IlmThread</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\IlmBase\Imath\Imath.vcxproj">
+      <Project>{C8167520-EA65-35A5-A7BC-2954E4D7F12F}</Project>
+      <Name>Imath</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\IlmBase\Half\eLut.vcxproj">
+      <Project>{63639C7F-C994-3109-8EBE-283B5350C58F}</Project>
+      <Name>eLut</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Project\Games202Assignment\Assignment2\prt\cmake-build-debug-visual-studio\ext_build\openexr\IlmBase\Half\toFloat.vcxproj">
+      <Project>{0C5AC557-3612-346F-A63F-8CBE10BE904E}</Project>
+      <Name>toFloat</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+</Project>

@@ -1,0 +1,18 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeASMCompiler.cmake.in
+C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeASMInformation.cmake
+C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeASM_MASMInformation.cmake
+C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeCompilerIdDetection.cmake
+C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineASMCompiler.cmake
+C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineASM_MASMCompiler.cmake
+C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompiler.cmake
+C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake
+C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeFindBinUtils.cmake
+C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeTestASMCompiler.cmake
+C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CMakeTestASM_MASMCompiler.cmake
+C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckCXXCompilerFlag.cmake
+C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/CheckCXXSourceRuns.cmake
+C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.28/Modules/Internal/CheckSourceRuns.cmake
+D:/Project/Games202Assignment/Assignment2/prt/cmake-build-debug-visual-studio/CMakeFiles/3.28.1/CMakeASM_MASMCompiler.cmake
+D:/Project/Games202Assignment/Assignment2/prt/ext/tbb/CMakeLists.txt
+D:/Project/Games202Assignment/Assignment2/prt/ext/tbb/build/version_string.ver.in

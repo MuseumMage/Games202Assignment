@@ -1,0 +1,10 @@
+^D:\PROJECT\GAMES202ASSIGNMENT\ASSIGNMENT2\PRT\CMAKE-BUILD-DEBUG-VISUAL-STUDIO\CMAKEFILES\29E846933B1E20DBF7E36D547FA3AD74\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -SD:/Project/Games202Assignment/Assignment2/prt -BD:/Project/Games202Assignment/Assignment2/prt/cmake-build-debug-visual-studio --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Project/Games202Assignment/Assignment2/prt/cmake-build-debug-visual-studio/nori.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
