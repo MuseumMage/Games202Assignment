@@ -214,23 +214,26 @@ public:
             auto shFunc = [&](double phi, double theta) -> double {
                 Eigen::Array3d d = sh::ToVector(phi, theta);
                 const auto wi = Vector3f(d.x(), d.y(), d.z());
+                double H = wi.normalized().dot(n.normalized());
                 if (m_Type == Type::Unshadowed)
                 {
                     // TODO: here you need to calculate unshadowed transport term of a given direction
                     // TODO: 此处你需要计算给定方向下的unshadowed传输项球谐函数值
-                     return 0;
+                     return H > 0.0 ? H : 0;
                 }
                 else
                 {
                     // TODO: here you need to calculate shadowed transport term of a given direction
                     // TODO: 此处你需要计算给定方向下的shadowed传输项球谐函数值
-                     return 0;
+                     return H > 0.0 && !scene->rayIntersect(Ray3f(v, wi.normalized())) ? H : 0;
                 }
             };
             auto shCoeff = sh::ProjectFunction(SHOrder, shFunc, m_SampleCount);
             for (int j = 0; j < shCoeff->size(); j++)
             {
-                m_TransportSHCoeffs.col(i).coeffRef(j) = (*shCoeff)[j];
+                // Tj
+                float rho = 1.0f;
+                m_TransportSHCoeffs.col(i).coeffRef(j) = rho / M_PI * (*shCoeff)[j];
             }
         }
         if (m_Type == Type::Interreflection)
