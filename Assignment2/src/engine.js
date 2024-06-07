@@ -6,6 +6,7 @@ var envmap = [
 	// 'assets/cubemap/GraceCathedral',
 	// 'assets/cubemap/Indoor',
 	// 'assets/cubemap/Skybox',
+	'prt/scenes/cubemap/CornellBox',
 	'prt/scenes/cubemap/GraceCathedral',
 	'prt/scenes/cubemap/Indoor',
 	'prt/scenes/cubemap/Skybox',
@@ -119,6 +120,10 @@ async function GAMES202Main() {
 	// TODO: load model - Add your Material here
 	// loadOBJ(renderer, 'assets/bunny/', 'bunny', 'addYourPRTMaterial', boxTransform);
 	// loadOBJ(renderer, 'assets/bunny/', 'bunny', 'addYourPRTMaterial', box2Transform);
+	
+	// prt material
+	let maryTransform = setTransform(0, -35, 0, 20, 20, 20);
+	loadOBJ(renderer, 'assets/mary/', 'mary', 'PRTMaterial', maryTransform);
 
 	function createGUI() {
 		const gui = new dat.gui.GUI();
