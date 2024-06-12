@@ -3,9 +3,6 @@ let precomputeL = [];
 var cameraPosition = [50, 0, 100];
 
 var envmap = [
-	// 'assets/cubemap/GraceCathedral',
-	// 'assets/cubemap/Indoor',
-	// 'assets/cubemap/Skybox',
 	'prt/scenes/cubemap/CornellBox',
 	'prt/scenes/cubemap/GraceCathedral',
 	'prt/scenes/cubemap/Indoor',
