@@ -19,7 +19,7 @@ typedef struct samplePoints {
 }samplePoints;
 
 samplePoints squareToCosineHemisphere(int sample_count){
-    samplePoints samlpeList;
+    samplePoints sampleList;
     const int sample_side = static_cast<int>(floor(sqrt(sample_count)));
 
     std::random_device rd;
@@ -31,15 +31,15 @@ samplePoints squareToCosineHemisphere(int sample_count){
             double sampley = (p + rng(gen)) / sample_side;
             
             double theta = 0.5f * acos(1 - 2*samplex);
-            double phi =  2 * M_PI * sampley;
+            double phi =  2 * PI * sampley;
             Vec3f wi = Vec3f(sin(theta) * cos(phi), sin(theta) * sin(phi), cos(theta));
             float pdf = wi.z / PI;
             
-            samlpeList.directions.push_back(wi);
-            samlpeList.PDFs.push_back(pdf);
+            sampleList.directions.push_back(wi);
+            sampleList.PDFs.push_back(pdf);
         }
     }
-    return samlpeList;
+    return sampleList;
 }
 
 float DistributionGGX(Vec3f N, Vec3f H, float roughness)
@@ -83,7 +83,18 @@ Vec3f IntegrateBRDF(Vec3f V, float roughness, float NdotV) {
     samplePoints sampleList = squareToCosineHemisphere(sample_count);
     for (int i = 0; i < sample_count; i++) {
       // TODO: To calculate (fr * ni) / p_o here
-      
+        Vec3f L = normalize(sampleList.directions[i]);
+        Vec3f H = normalize(V + L);
+        float pdf = sampleList.PDFs[i];
+        float NdotL = std::max(dot(N, L), 0.0f);
+
+        float D = DistributionGGX(N, H, roughness);
+        float G = GeometrySmith(roughness, NdotV, NdotL);
+        float F = 1.0f;
+
+        auto fr = (D * G * F) / (4.0 * NdotV * NdotL);
+        auto res = fr * NdotL / pdf;
+        A = B = C += (float)res;
     }
 
     return {A / sample_count, B / sample_count, C / sample_count};
