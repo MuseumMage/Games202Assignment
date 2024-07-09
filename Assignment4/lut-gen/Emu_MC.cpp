@@ -109,8 +109,10 @@ int main() {
             float NdotV = step * (static_cast<float>(j) + 0.5f);
             Vec3f V = Vec3f(std::sqrt(1.f - NdotV * NdotV), 0.f, NdotV);
 
+            // V is the view direction
             Vec3f irr = IntegrateBRDF(V, roughness, NdotV);
 
+            // 分别写入三个通道
             data[(i * resolution + j) * 3 + 0] = uint8_t(irr.x * 255.0);
             data[(i * resolution + j) * 3 + 1] = uint8_t(irr.y * 255.0);
             data[(i * resolution + j) * 3 + 2] = uint8_t(irr.z * 255.0);
