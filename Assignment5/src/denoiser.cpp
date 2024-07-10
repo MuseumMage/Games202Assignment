@@ -46,7 +46,41 @@ Buffer2D<Float3> Denoiser::Filter(const FrameInfo &frameInfo) {
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
             // TODO: Joint bilateral filter
-            filteredImage(x, y) = frameInfo.m_beauty(x, y);
+            // filteredImage(x, y) = frameInfo.m_beauty(x, y);
+            Float3 finalColor = Float3(0.f);
+            float weightSum = 0.f;
+            for (int j = 0; j < kernelRadius; j++)
+            {
+                for (int i = 0; i < kernelRadius; i++)
+                {
+                    int nx = std::min(std::max(x + i - kernelRadius / 2, 0), width);
+                    int ny = std::min(std::max(y + j - kernelRadius / 2, 0), height);
+
+                    Float3 color = frameInfo.m_beauty(nx, ny);
+                    Float3 normal = frameInfo.m_normal(nx, ny);
+                    Float3 position = frameInfo.m_position(nx, ny);
+
+                    Float3 centerColor = frameInfo.m_beauty(x, y);
+                    Float3 centerNormal = frameInfo.m_normal(x, y);
+                    Float3 centerPosition = frameInfo.m_position(x, y);
+
+                    // Ref: https://zhuanlan.zhihu.com/p/607012514
+                    // calculate distance
+                    float colorDis = SqrDistance(centerColor, color) / (2 * m_sigmaColor * m_sigmaColor);
+                    float positionDis = SqrDistance(centerPosition, position) / (2 * m_sigmaCoord * m_sigmaCoord);
+                    float normalDis = SafeAcos(Dot(centerNormal, normal)) * SafeAcos(Dot(centerNormal, normal)) / (2 * m_sigmaNormal * m_sigmaNormal);
+                    if (positionDis <= 0)
+                    {
+                        continue;
+                    }
+                    float planeDis = Dot(centerPosition, Normalize(position - centerPosition)) / (2 * m_sigmaPlane * m_sigmaPlane);
+
+                    float weight = std::exp(-colorDis - positionDis - normalDis - planeDis);
+                    finalColor += color * weight;
+                    weightSum += weight;
+                }
+            }
+            filteredImage(x, y) = finalColor / weightSum;
         }
     }
     return filteredImage;
