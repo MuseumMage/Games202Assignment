@@ -6,15 +6,42 @@ void Denoiser::Reprojection(const FrameInfo &frameInfo) {
     int height = m_accColor.m_height;
     int width = m_accColor.m_width;
     Matrix4x4 preWorldToScreen =
-        m_preFrameInfo.m_matrix[m_preFrameInfo.m_matrix.size() - 1];
+            m_preFrameInfo.m_matrix[m_preFrameInfo.m_matrix.size() - 1];
     Matrix4x4 preWorldToCamera =
-        m_preFrameInfo.m_matrix[m_preFrameInfo.m_matrix.size() - 2];
+            m_preFrameInfo.m_matrix[m_preFrameInfo.m_matrix.size() - 2];
 #pragma omp parallel for
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
             // TODO: Reproject
+            // 公式参考：https://zhuanlan.zhihu.com/p/607012514
+            // screen(pre) = P(pre) * V(pre) * M(pre) * M(cur) * position(cur)
             m_valid(x, y) = false;
             m_misc(x, y) = Float3(0.f);
+
+            // 公式带入计算
+            int currentId = frameInfo.m_id(x, y);
+            // invalid pixel
+            if (currentId == -1) {
+                continue;
+            }
+            Float3 position = frameInfo.m_position(x, y);                                    // position(cur)
+            Matrix4x4 curWorldToLocal = Inverse(frameInfo.m_matrix[currentId]);         // M(cur)
+            Matrix4x4 preLocalToWorld = m_preFrameInfo.m_matrix[currentId];                  // M(pre)
+            Float3 preLocal = curWorldToLocal(position, Float3::EType::Point);      // M(cur) * position(cur)
+            Float3 preWorld = preLocalToWorld(preLocal, Float3::EType::Point);      // M(pre) * M(cur) * position(cur)
+            Float3 preScreen = preWorldToScreen(preWorld, Float3::EType::Point);    // P(pre) * V(pre) * M(pre) * M(cur) * position(cur)
+
+            // 1. 判断是否在屏幕内 -- m_valid
+            // 2. 上一帧与当前帧的物体标号相同
+            if (preScreen.x >= 0 && preScreen.x < width && preScreen.y >= 0 && preScreen.y < height) {
+                int preX = preScreen.x;
+                int preY = preScreen.y;
+                int preId = m_preFrameInfo.m_id(preX, preY);
+                if (preId == currentId) {
+                    m_valid(x, y) = true;
+                    m_misc(x, y) = m_accColor(preX, preY);
+                }
+            }
         }
     }
     std::swap(m_misc, m_accColor);
@@ -28,10 +55,35 @@ void Denoiser::TemporalAccumulation(const Buffer2D<Float3> &curFilteredColor) {
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
             // TODO: Temporal clamp
-            Float3 color = m_accColor(x, y);
+            Float3 preFilteredColor = m_accColor(x, y);
             // TODO: Exponential moving average
             float alpha = 1.0f;
-            m_misc(x, y) = Lerp(color, curFilteredColor(x, y), alpha);
+
+            // 公式: preFilteredColor = alpha * curFilteredColor + (1 - alpha) * clamp(preFilteredColor, mu - sigma * k, mu + sigma * k)
+            if (m_valid(x, y)) {
+                alpha = m_alpha;
+
+                Float3 mu(0.f);
+                Float3 sigma2(0.f);
+                int x_start = std::max(0, x - kernelRadius);
+                int x_end = std::min(width - 1, x + kernelRadius);
+                int y_start = std::max(0, y - kernelRadius);
+                int y_end = std::min(height - 1, y + kernelRadius);
+
+                for (int nx = x_start; nx <= x_end; nx++) {
+                    for (int ny = y_start; ny <= y_end; ny++) {
+                        mu += curFilteredColor(nx, ny);
+                        sigma2 += Sqr(curFilteredColor(x, y) - curFilteredColor(nx, ny));
+                    }
+                }
+
+                int count = (2 * kernelRadius + 1) * (2 * kernelRadius + 1);
+                mu /= (float) count;
+                Float3 sigma = SafeSqrt(sigma2 / (float) count);
+                preFilteredColor = Clamp(preFilteredColor, mu - sigma * m_colorBoxK, mu + sigma * m_colorBoxK);
+            }
+
+            m_misc(x, y) = Lerp(preFilteredColor, curFilteredColor(x, y), alpha);
         }
     }
     std::swap(m_misc, m_accColor);
@@ -49,12 +101,14 @@ Buffer2D<Float3> Denoiser::Filter(const FrameInfo &frameInfo) {
             // filteredImage(x, y) = frameInfo.m_beauty(x, y);
             Float3 finalColor = Float3(0.f);
             float weightSum = 0.f;
-            for (int j = 0; j < kernelRadius; j++)
-            {
-                for (int i = 0; i < kernelRadius; i++)
-                {
-                    int nx = std::min(std::max(x + i - kernelRadius / 2, 0), width);
-                    int ny = std::min(std::max(y + j - kernelRadius / 2, 0), height);
+
+            int x_start = std::max(0, x - kernelRadius);
+            int x_end = std::min(width - 1, x + kernelRadius);
+            int y_start = std::max(0, y - kernelRadius);
+            int y_end = std::min(height - 1, y + kernelRadius);
+
+            for (int nx = x_start; nx <= x_end; nx++) {
+                for (int ny = y_start; ny <= y_end; ny++) {
 
                     Float3 color = frameInfo.m_beauty(nx, ny);
                     Float3 normal = frameInfo.m_normal(nx, ny);
@@ -69,8 +123,7 @@ Buffer2D<Float3> Denoiser::Filter(const FrameInfo &frameInfo) {
                     float colorDis = SqrDistance(centerColor, color) / (2 * m_sigmaColor * m_sigmaColor);
                     float positionDis = SqrDistance(centerPosition, position) / (2 * m_sigmaCoord * m_sigmaCoord);
                     float normalDis = SafeAcos(Dot(centerNormal, normal)) * SafeAcos(Dot(centerNormal, normal)) / (2 * m_sigmaNormal * m_sigmaNormal);
-                    if (positionDis <= 0)
-                    {
+                    if (positionDis <= 0) {
                         continue;
                     }
                     float planeDis = Dot(centerPosition, Normalize(position - centerPosition)) / (2 * m_sigmaPlane * m_sigmaPlane);
