@@ -107,6 +107,10 @@ Buffer2D<Float3> Denoiser::Filter(const FrameInfo &frameInfo) {
             int y_start = std::max(0, y - kernelRadius);
             int y_end = std::min(height - 1, y + kernelRadius);
 
+            Float3 centerColor = frameInfo.m_beauty(x, y);
+            Float3 centerNormal = frameInfo.m_normal(x, y);
+            Float3 centerPosition = frameInfo.m_position(x, y);
+
             for (int nx = x_start; nx <= x_end; nx++) {
                 for (int ny = y_start; ny <= y_end; ny++) {
 
@@ -114,24 +118,24 @@ Buffer2D<Float3> Denoiser::Filter(const FrameInfo &frameInfo) {
                     Float3 normal = frameInfo.m_normal(nx, ny);
                     Float3 position = frameInfo.m_position(nx, ny);
 
-                    Float3 centerColor = frameInfo.m_beauty(x, y);
-                    Float3 centerNormal = frameInfo.m_normal(x, y);
-                    Float3 centerPosition = frameInfo.m_position(x, y);
-
                     // Ref: https://zhuanlan.zhihu.com/p/607012514
                     // calculate distance
-                    float colorDis = SqrDistance(centerColor, color) / (2 * m_sigmaColor * m_sigmaColor);
-                    float positionDis = SqrDistance(centerPosition, position) / (2 * m_sigmaCoord * m_sigmaCoord);
-                    float normalDis = SafeAcos(Dot(centerNormal, normal)) * SafeAcos(Dot(centerNormal, normal)) / (2 * m_sigmaNormal * m_sigmaNormal);
-                    if (positionDis <= 0) {
-                        continue;
+                    float colorDis = SqrDistance(centerColor, color) / (2.f * m_sigmaColor * m_sigmaColor);
+                    float positionDis = SqrDistance(centerPosition, position) / (2.f * m_sigmaCoord * m_sigmaCoord);
+                    float normalDis = SafeAcos(Dot(centerNormal, normal)) * SafeAcos(Dot(centerNormal, normal)) / (2.f * m_sigmaNormal * m_sigmaNormal);
+                    float planeDis = 0.f;
+                    if (positionDis > 0.f) {
+                        planeDis = Dot(centerPosition, Normalize(position - centerPosition)) * Dot(centerPosition, Normalize(position - centerPosition)) / (2.f * m_sigmaPlane * m_sigmaPlane);
                     }
-                    float planeDis = Dot(centerPosition, Normalize(position - centerPosition)) / (2 * m_sigmaPlane * m_sigmaPlane);
 
                     float weight = std::exp(-colorDis - positionDis - normalDis - planeDis);
                     finalColor += color * weight;
                     weightSum += weight;
                 }
+            }
+            if (weightSum == 0.f) {
+                filteredImage(x, y) = centerColor;
+                continue;
             }
             filteredImage(x, y) = finalColor / weightSum;
         }
@@ -165,7 +169,7 @@ Buffer2D<Float3> Denoiser::ProcessFrame(const FrameInfo &frameInfo) {
     // Maintain
     Maintain(frameInfo);
     if (!m_useTemportal) {
-        m_useTemportal = true;
+        m_useTemportal = false;
     }
     return m_accColor;
 }
